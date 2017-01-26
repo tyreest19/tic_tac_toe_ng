@@ -1,10 +1,9 @@
-//
-//  main.cpp
-//  tic_tac_toe_ng
-//
+// Tyree Stevenson
+// Dr. Chung Ng – Data Structures and Algorithm Analysis
+// January 27, 2017
+// tic-tac-toe game
 //  Created by Tyree Stevenson on 1/21/17.
 //  Copyright © 2017 Tyree Stevenson. All rights reserved.
-//
 
 #include <iostream>
 #include <string>
@@ -21,10 +20,6 @@ struct Player {
     char piece;
     bool turn;
 };
-
-void clear_cin_buffer();
-
-void get_names(string array_of_names[4]);
 
 void play_game(Player &player1, Player &player2);
 
@@ -74,8 +69,13 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+//============================================================================================
+// Takes two Player objects by reference which is used to update players stats.
+// Creates a board object
+// Then allows the players to play a tic-tac_toe game which displays, updates, and checks for win/draw after every move
+//============================================================================================
+
 void play_game(Player &player1, Player &player2) {
-    // This function is the actually tic-tac-toe game and it increments the stats of the player objects
     
     Board board;
     
@@ -144,6 +144,13 @@ void play_game(Player &player1, Player &player2) {
     }
 }
 
+//============================================================================================
+// Takes two Player objects and displays their stats and fullnames.
+// Prompts the player to continue the game.
+// Returns true if player chooses to play the game.
+// Returns false if player chooses not to play the game.
+//============================================================================================
+
 bool continue_game(Player player1, Player player2) {
     
     char continue_game;
@@ -164,6 +171,12 @@ bool continue_game(Player player1, Player player2) {
     return continue_game == 'y';
     
 }
+
+//============================================================================================
+// Takes a string as the name of the user.
+// Prompts the user to enter move.
+// Returns players move.
+//============================================================================================
 
 char get_player_move(string firstname) {
     char move;

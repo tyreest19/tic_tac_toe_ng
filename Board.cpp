@@ -1,4 +1,6 @@
-//
+// Tyree Stevenson
+// Dr. Chung Ng – Data Structures and Algorithm Analysis
+// January 27, 2017
 //  Board.cpp
 //  tic_tac_toe_ng
 //
@@ -15,14 +17,21 @@ using namespace std;
 
 string board[3][3];
 
+//============================================================================================
+// Creates Board object.
+//============================================================================================
+
 Board:: Board(){
     
     generate_board();
     
 };
 
+//============================================================================================
+// Generates a two dimensional char array with numbers from 1-9.
+//============================================================================================
+
 void Board:: generate_board() {
-    // Generates a blank board.
     board[0][0] = '1';
     board[0][1] = '2';
     board[0][2] = '3';
@@ -34,8 +43,11 @@ void Board:: generate_board() {
     board[2][2] = '9';
 };
 
+//============================================================================================
+// Allows user to edit the board.
+//============================================================================================
+
 void Board:: edit_board(char user_input,char players_piece) {
-    // Allows user to edit the board.
     
     if(user_input == '1' || user_input == '2' || user_input == '3') {
         
@@ -101,8 +113,11 @@ void Board:: edit_board(char user_input,char players_piece) {
     }
 };
 
+//============================================================================================
+// Displays the board.
+//============================================================================================
+
 void Board:: display_board() {
-    // Displays the board.
     
     for (int i = 0; i < 3; i++) {
         
@@ -124,8 +139,11 @@ void Board:: display_board() {
     
 };
 
+//============================================================================================
+// Searches for win by checking all of the possible winning methods.
+//============================================================================================
+
 bool Board:: search_for_win(char piece) {
-    // Searches for win by checking all of the possible winning methods.
     
     bool diagonal_win = Board:: search_for_diagonal_win(piece);
     
@@ -143,8 +161,11 @@ bool Board:: search_for_win(char piece) {
     
 }
 
+//============================================================================================
+// Searches the board for a winning diagnol combination and if combination found it is capitalized and returns true.
+//============================================================================================
+
 bool Board:: search_for_diagonal_win(char piece) {
-    // Search the board for a winning diagnol combination and if combination found it is capitalized and // returns true.
     
     if (board[0][0] == piece && board[1][1] == piece && board[2][2] == piece) {
         
@@ -167,8 +188,11 @@ bool Board:: search_for_diagonal_win(char piece) {
     return false;
 }
 
+//============================================================================================
+// Searches the board for a winning horizontal combination if combination found it is capitalized and returns true.
+//============================================================================================
+
 bool Board:: search_for_horizontal_win(char piece) {
-    // Search the board for a winning horizontal combination if combination found it is capitalized and // returns true.
     
     int score = 0;
     
@@ -198,8 +222,11 @@ bool Board:: search_for_horizontal_win(char piece) {
     return false;
 }
 
+//============================================================================================
+// Searches the board for a winning vertical combination if combination found it is capitalized and  returns true.
+//============================================================================================
+
 bool Board:: search_for_vertical_win(char piece) {
-    // Search the board for a winning vertical combination if combination found it is capitalized and // returns true.
     
     if (board[0][0] == piece && board[1][0] == piece && board[2][0] == piece) {
         
@@ -230,6 +257,10 @@ bool Board:: search_for_vertical_win(char piece) {
     
     return false;
 }
+
+//============================================================================================
+// Searches for tie game.
+//============================================================================================
 
 bool Board:: search_for_tie_game() {
     // Searches for tie game.
